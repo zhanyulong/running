@@ -29,31 +29,31 @@ const RunTable = ({
   const [sortFuncInfo, setSortFuncInfo] = useState('');
   // TODO refactor?
   const sortKMFunc: SortFunc = (a, b) =>
-    sortFuncInfo === 'KM' ? a.distance - b.distance : b.distance - a.distance;
+    sortFuncInfo === '公里' ? a.distance - b.distance : b.distance - a.distance;
   const sortPaceFunc: SortFunc = (a, b) =>
-    sortFuncInfo === 'Pace'
+    sortFuncInfo === '配速'
       ? a.average_speed - b.average_speed
       : b.average_speed - a.average_speed;
   const sortBPMFunc: SortFunc = (a, b) => {
-    return sortFuncInfo === 'BPM'
+    return sortFuncInfo === '心率'
       ? (a.average_heartrate ?? 0) - (b.average_heartrate ?? 0)
       : (b.average_heartrate ?? 0) - (a.average_heartrate ?? 0);
   };
   const sortRunTimeFunc: SortFunc = (a, b) => {
     const aTotalSeconds = convertMovingTime2Sec(a.moving_time);
     const bTotalSeconds = convertMovingTime2Sec(b.moving_time);
-    return sortFuncInfo === 'Time'
+    return sortFuncInfo === '时长'
       ? aTotalSeconds - bTotalSeconds
       : bTotalSeconds - aTotalSeconds;
   };
   const sortDateFuncClick =
-    sortFuncInfo === 'Date' ? sortDateFunc : sortDateFuncReverse;
+    sortFuncInfo === '时间' ? sortDateFunc : sortDateFuncReverse;
   const sortFuncMap = new Map([
-    ['KM', sortKMFunc],
-    ['Pace', sortPaceFunc],
-    ['BPM', sortBPMFunc],
-    ['Time', sortRunTimeFunc],
-    ['Date', sortDateFuncClick],
+    ['公里', sortKMFunc],
+    ['配速', sortPaceFunc],
+    ['心率', sortBPMFunc],
+    ['时长', sortRunTimeFunc],
+    ['时间', sortDateFuncClick],
   ]);
 
   const handleClick: React.MouseEventHandler<HTMLElement> = (e) => {

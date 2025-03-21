@@ -28,14 +28,14 @@ const LocationStat = ({
         .
         <br />
         <br />
-        Yesterday you said tomorrow.
+        {/* Yesterday you said tomorrow. */}
       </p>
     </section>
     <hr color="red" />
     <LocationSummary />
     <CitiesStat onClick={changeCity} />
     <PeriodStat onClick={changeTitle} />
-    <YearStat year="Total" onClick={changeYear} />
+    <YearStat year="总计" onClick={changeYear} />
   </div>
 );
 

@@ -14,7 +14,7 @@ const CitiesStat = ({ onClick }: { onClick: (_city: string) => void }) => {
           <Stat
             key={city}
             value={city}
-            description={` ${(distance / 1000).toFixed(0)} KM`}
+            description={` ${(distance / 1000).toFixed(0)} 公里`}
             citySize={3}
             onClick={() => onClick(city)}
           />

@@ -193,7 +193,7 @@ const RunMap = ({
           endLon={endLon}
         />
       )}
-      <span className={styles.runTitle}>{title}</span>
+      {/* <span className={styles.runTitle}>{title}</span> */}
       <FullscreenControl style={fullscreenButton}/>
       {!PRIVACY_MODE && <LightsControl setLights={setLights} lights={lights}/>}
       <NavigationControl showCompass={false} position={'bottom-right'} style={{opacity: 0.3}}/>

@@ -55,18 +55,18 @@ const YearStat = ({ year, onClick }: { year: string, onClick: (_year: string) =>
       {...eventHandlers}
     >
       <section>
-        <Stat value={year} description=" Journey" />
-        <Stat value={runs.length} description=" Runs" />
-        <Stat value={sumDistance} description=" KM" />
-        <Stat value={avgPace} description=" Avg Pace" />
-        <Stat value={`${streak} day`} description=" Streak" />
+        <Stat value={year} description={year === '总计' ? '' : ' 年'} />
+        <Stat value={runs.length} description=" 次" />
+        <Stat value={sumDistance} description=" 公里" />
+        <Stat value={avgPace} description=" 平均配速" />
+        <Stat value={`${streak} 天`} description=" 连续跑" />
         {hasHeartRate && (
-          <Stat value={avgHeartRate} description=" Avg Heart Rate" />
+          <Stat value={avgHeartRate} description=" 平均心率" />
         )}
       </section>
-      {year !== 'Total' && hovered && (
+      {year !== '总计' && hovered && (
         <Suspense fallback="loading...">
-          <YearSVG className="my-4 h-4/6 w-4/6 border-0 p-0" />
+          <YearSVG year="总计" className="my-4 h-4/6 w-4/6 border-0 p-0" />
         </Suspense>
       )}
       <hr color="red" />
