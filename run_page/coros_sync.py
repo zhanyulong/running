@@ -154,10 +154,12 @@ async def gather_with_concurrency(n, tasks):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("account", nargs="?", help="input coros account")
-
-    parser.add_argument("password", nargs="?", help="input coros password")
+    parser.add_argument("account", help="input coros account")
+    parser.add_argument("password", help="input coros password")
     options = parser.parse_args()
+
+    if not options.account or not options.password:
+        parser.error("Both account and password are required")
 
     account = options.account
     password = options.password
